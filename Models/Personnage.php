@@ -19,7 +19,7 @@ class Personnage {
     public function attaquer(Personnage $cible): float
     {
         $degats = 0.5 + (0.25*$this->force + (rand(0,20)/10));
-        $cible->setPV($cible->getPV() - $degats) ;
+        $cible->setPV($cible->getPV() - $degats);
         return $degats;
     }
 

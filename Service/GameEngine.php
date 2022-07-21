@@ -6,7 +6,7 @@ include 'Models/Humain.php';
 
 
 class GameEngine {
-    private array $combattant;
+    private array $combattants;
     private int $turn;
     private Personnage $combattantActuel;
     private int $indexCombattantActuel;
@@ -27,6 +27,12 @@ class GameEngine {
         $this->addCombattant(new Orque("Orcobal",8,8,1));
         $this->addCombattant(new Elfe("Celebrimbor",5,10,10));
         $this->addCombattant(new Humain("Boromir",6,8,8));
+        $this->accident = [
+        "s'est foulé la cheville...", 
+        "trébuche et plante son arme dans son pied,",
+        "se déconcentre en observant la magnifique paysage du Mordor et se prend un coup dans le dos...", 
+        "est térrifié a l'idée de sucomber, il tente de s'enfuir mais", 
+        "ecoute un morceau de Jul,"];
         $this->indexCombattantActuel = 0;
         $this->combattantActuel = $this->combattants[$this->indexCombattantActuel];
     }
@@ -55,11 +61,11 @@ class GameEngine {
     }
 
     public function tourDeJeu(): void
-    {
+    {   
         $joueurAlea = $this->getJoueur();
         $degats = $this->combattantActuel->attaquer($joueurAlea);
         if($this->combattantActuel === $joueurAlea){
-            echo "<p>" . $this->combattantActuel->name . " s'est foulé la cheville... le pauvre perd " . $degats . " PDV.</p>";
+            echo "<p>" . $this->combattantActuel->name . " " . $this->accident[array_rand($this->accident)] . " le pauvre perd " . $degats-1.5 . " PDV.</p>";
         } else {
             echo "<p>" . $this->combattantActuel->name . " frappe et effectue " . $degats . " points de dégats à " .  $joueurAlea->name . " et ses PV tombent à " . $joueurAlea->getPv() . "</p>";
         }
