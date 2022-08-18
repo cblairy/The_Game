@@ -1,0 +1,40 @@
+html {
+    display: flex;
+    justify-content: center;
+    width: 1200px;
+}
+body {
+    background:url('../images/sda.webp');
+    border: 10px black solid;
+}
+
+h1 {
+    background-color: rgb(90, 132, 169);
+    width:400px; 
+    border-radius: 5px; 
+    padding:10px;
+}
+
+label {
+    background-color: rgb(90, 132, 169);
+    padding:5px; 
+    border-radius:5px;
+}
+
+div {
+    background-color: rgb(90, 132, 169);
+    width:400px; 
+    border-radius:5px; 
+    padding:10px;
+}
+
+table, legend, td{
+    background-color: rgb(90, 132, 169);
+    border: 1px black solid;
+}
+
+form, a {
+    background-color: rgb(90, 132, 169);
+
+}
+

@@ -23,7 +23,7 @@ class GameEngine {
         $this->addCombattant(new Humain("AraCorne",8,8,7));
         $this->addCombattant(new Orque("Othrod",9,6,4));
         $this->addCombattant(new Elfe("Eowyn ",6,9,10));
-        $this->addCombattant(new Humain("Isil-dur",6,7,7));
+        $this->addCombattant(new Humain("Isildur",6,7,7));
         $this->addCombattant(new Orque("Orcobal",8,8,1));
         $this->addCombattant(new Elfe("Celebrimbor",5,10,10));
         $this->addCombattant(new Humain("Boromir",6,8,8));
