@@ -1,10 +1,6 @@
 
 document.getElementById('champions').addEventListener('change', function(){
-    let champion1 = champions.value
-    console.log(champion1)
+    let champion = champions.value
+    document.getElementById('madiv').innerHTML = 
 })
 
-document.getElementById('champions2').addEventListener('change', function(){
-    let champion2 = champions2.value
-    console.log(champion2)
-})

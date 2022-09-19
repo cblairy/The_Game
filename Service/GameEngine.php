@@ -13,13 +13,13 @@ class GameEngine {
 
     public function __construct()
     {
-        $this->combattants = [];
+        $this->combattants = array();
         $this->turn = 0;
         $this->addCombattant(new Orque("Balcmeg",9,6,3));
         $this->addCombattant(new Humain("Jean-Bil",6,7,6));
         $this->addCombattant(new Elfe("Legonidas",3,10,10));
         $this->addCombattant(new Orque("Lug",10,5,8));
-        $this->addCombattant(new Elfe("Elleronde",4,9,9));
+        $this->addCombattant(new Elfe("Elrond",4,9,9));
         $this->addCombattant(new Humain("AraCorne",8,8,7));
         $this->addCombattant(new Orque("Othrod",9,6,4));
         $this->addCombattant(new Elfe("Eowyn ",6,9,10));
