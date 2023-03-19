@@ -1,4 +1,4 @@
- [center]# Battle royal - Seigneur des anneaux[/center]
+# Battle royal - Seigneur des anneaux
 
 <img align="center" width="100%" src="./images/SDA3.png">
 
@@ -12,11 +12,11 @@ J’ai créé une page principale qui gère le combat, sur cette page il y a 3 a
 -	Lancer le combat avec les personnages existants + les personnages de base qui sont toujours dans l'arène au debut du combat.
 
 ### Exemples 
-<div style="align: center;">
+<div style="align: center;" width="100%">
  
  ![debut battle royal SDA](./images/SDA1.png)
 
- Fin du combat.
+ Fin du combat:
 
  ![fin du combat](./images/SDA2.png)
 </div>
