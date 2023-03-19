@@ -1,8 +1,8 @@
-# Battle royal - Seigneur des anneaux
+# Battle royal - Seigneur des anneaux 🗡️🏹
 
 <img align="center" width="100%" src="./images/SDA3.png">
 
-## l'exercice
+## L'exercice
 Cet exercice était une évaluation sur la programmation orientée objet que je venais de découvrir. Le but était de créer un jeu avec deux Personnages (objets) ayants des caractéristiques et les faisant se battre jusqu’à la victoire de l’un d’eux. Dans mon cas, j’ai plutôt créé une arène avec autant de Personnages possibles en mode « battle royal », c’est-à-dire qu’ils se battent tous les uns contre les autres en même temps, ou plustot, l'un après l'autre.
 
 ## Création
