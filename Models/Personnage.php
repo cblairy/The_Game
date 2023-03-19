@@ -3,10 +3,12 @@
 
 class Personnage {
     // declaration des proprietes 
+    protected int $id;
+
     function __construct(
         public string $name,
         public int $force,
-        private float $pv,
+        public float $pv,
         public int $endurance
     ) {
         $this->name = $name;
@@ -16,6 +18,11 @@ class Personnage {
     }
 
     // declaration des methodes 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
     public function attaquer(Personnage $cible): float
     {
         $degats = 0.5 + (0.25*$this->force + (rand(0,20)/10));
@@ -38,6 +45,22 @@ class Personnage {
         if($pv < 0){$pv = 0;}
         $this->pv = $pv;
     }
+
+    public function getName(): string 
+    {
+        return $this->name;
+    }
+
+    public function getForce(): int 
+    {
+        return $this->force;
+    }
+
+    public function getEndurance(): int 
+    {
+        return $this->endurance;
+    }
+
 }
 
 

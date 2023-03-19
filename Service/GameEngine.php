@@ -4,17 +4,15 @@ include 'Models/Elfe.php';
 include 'Models/Orque.php';
 include 'Models/Humain.php';
 
-
 class GameEngine {
     private array $combattants;
-    private int $turn;
     private Personnage $combattantActuel;
     private int $indexCombattantActuel;
+    private array $accident;
 
     public function __construct()
     {
         $this->combattants = array();
-        $this->turn = 0;
         $this->addCombattant(new Orque("Balcmeg",9,6,3));
         $this->addCombattant(new Humain("Jean-Bil",6,7,6));
         $this->addCombattant(new Elfe("Legonidas",3,10,10));
@@ -28,31 +26,42 @@ class GameEngine {
         $this->addCombattant(new Elfe("Celebrimbor",5,10,10));
         $this->addCombattant(new Humain("Boromir",6,8,8));
         $this->accident = [
-        "s'est foulé la cheville...", 
-        "trébuche et plante son arme dans son pied,",
-        "se déconcentre en observant la magnifique paysage du Mordor et se prend un coup dans le dos...", 
-        "est térrifié a l'idée de sucomber, il tente de s'enfuir mais", 
-        "ecoute un morceau de Jul,"];
+            "s'est foulé la cheville...", 
+            "trébuche et plante son arme dans son pied,",
+            "se déconcentre en observant la magnifique paysage du Mordor...", 
+            "est térrifié a l'idée de sucomber, il tente de s'enfuir mais échoue", 
+            "ecoute un morceau de Jul,"
+        ];
         $this->indexCombattantActuel = 0;
         $this->combattantActuel = $this->combattants[$this->indexCombattantActuel];
     }
     // declaration des methodes 
     public function addCombattant(Personnage $personnageP): void
     {
-       $this->combattants[] = $personnageP;
+       array_push($this->combattants, $personnageP);
+    }
+
+    public function getCombattantsList(): array
+    {
+        return $this->combattants;
     }
 
     public function start(): void
     {   
-        //var_dump($this->combattants);
+        $dbh = new PDO("mysql:host=thegame.com;dbname=thegame;", "root", "");
+        $joueurs = $dbh->query("SELECT * FROM `personnages`")->fetchAll(PDO::FETCH_ASSOC);
+        foreach($joueurs as $joueur) {
+            if($joueur["race"] == "orque")
+                $this->addCombattant(new Orque($joueur["nom"], $joueur["force_perso"], $joueur["pv"], $joueur["endurance"]));
+            if($joueur["race"] == "homme")
+                $this->addCombattant(new Humain($joueur["nom"], $joueur["force_perso"], $joueur["pv"], $joueur["endurance"]));
+            if($joueur["race"] == "elfe")
+                $this->addCombattant(new Elfe($joueur["nom"], $joueur["force_perso"], $joueur["pv"], $joueur["endurance"]));
+        }
+        
         while(!$this->fin()){            
            $this->tourDeJeu(); 
         }
-    }
-
-    public function getId(): void
-    {
-        // utilité ? Pas pour moi :s
     }
 
     public function getJoueur(): Personnage
@@ -64,15 +73,15 @@ class GameEngine {
     {   
         $joueurAlea = $this->getJoueur();
         $degats = $this->combattantActuel->attaquer($joueurAlea);
+
         if($this->combattantActuel === $joueurAlea){
-            echo "<p>" . $this->combattantActuel->name . " " . $this->accident[array_rand($this->accident)] . " le pauvre perd " . $degats-1.5 . " PDV.</p>";
+            echo "<p>" . $this->combattantActuel->getName() . " " . $this->accident[array_rand($this->accident)] . " le pauvre perd " . $degats-1.5 . " PDV.</p>";
         } else {
-            echo "<p>" . $this->combattantActuel->name . " frappe et effectue " . $degats . " points de dégats à " .  $joueurAlea->name . " et ses PV tombent à " . $joueurAlea->getPv() . "</p>";
+            echo "<p>" . $this->combattantActuel->getName() . " frappe et effectue " . $degats . " points de dégats à " .  $joueurAlea->getName() . " et ses PV tombent à " . $joueurAlea->getPv() . "</p>";
         }
         $this->nettoyerMort();
         $this->prochainAttaquant();
     }
-
     
     public function prochainAttaquant(): void
     {
@@ -89,7 +98,7 @@ class GameEngine {
         foreach($this->combattants as $key => $combattant)
         {   
             if($combattant->isDead()){
-                echo $combattant->name . " est KO.<br>";
+                echo $combattant->getName() . " est KO.<br>";
                 array_splice($this->combattants, $key, 1);
             }
         }

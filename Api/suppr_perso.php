@@ -1,15 +1,15 @@
 <?php
 require_once("pdo.php");
 
-$userID = $_POST['select'];
+$id = $_POST['select'];
 
-$suppr_requete = "DELETE FROM `Personnages` WHERE personnage_id=" . $userID;
+$suppr_requete = "DELETE FROM `personnages` WHERE id=" . $id;
 
 try {
     $declaration = $dbh->query($suppr_requete) ;  
 }
 catch (PDOException $e){
-    echo "La suppression a échoué : ".$e->getMessage();
+    echo "La suppression a échouée : ".$e->getMessage();
 }
 
 header("Location: ../index.php?msg=personnage%20deleted");
