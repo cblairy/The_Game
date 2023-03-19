@@ -1,7 +1,9 @@
-# Battle royal - Seigneur des anneaux
+# [center]Battle royal - Seigneur des anneaux[/center]
+
+<div align="center">![battle royal SDA](./images/SDA3.png)</div>
 
 ## l'exercice
-Cet exercice était une évaluation sur la programmation orientée objet que nous venions de découvrir. Le but était de créer un jeu avec deux Personnages (objets) ayants des caractéristiques et les faisant se battre jusqu’à la victoire de l’un d’eux. Dans mon cas, j’ai plutôt créé une arène avec autant de Personnages possibles en mode « battle royal », c’est-à-dire qu’ils se battent tous les uns contre les autres en même temps, ou plustot, l'un après l'autre.
+Cet exercice était une évaluation sur la programmation orientée objet que je venais de découvrir. Le but était de créer un jeu avec deux Personnages (objets) ayants des caractéristiques et les faisant se battre jusqu’à la victoire de l’un d’eux. Dans mon cas, j’ai plutôt créé une arène avec autant de Personnages possibles en mode « battle royal », c’est-à-dire qu’ils se battent tous les uns contre les autres en même temps, ou plustot, l'un après l'autre.
 
 ## Création
 J’ai créé une page principale qui gère le combat, sur cette page il y a 3 actions possibles :
@@ -9,8 +11,9 @@ J’ai créé une page principale qui gère le combat, sur cette page il y a 3 a
 -	Supprimer un personnage existant (visible depuis le tableau des participants)
 -	Lancer le combat avec les personnages existants + les personnages de base qui sont toujours dans l'arène au debut du combat.
 
-### exemple 
-![battle royal SDA](./images/SDA1.png)
+### Exemples 
+![debut battle royal SDA](./images/SDA1.png)
 
+Fin du combat.
 ![fin du combat](./images/SDA2.png)
 
