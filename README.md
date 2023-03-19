@@ -12,8 +12,10 @@ J’ai créé une page principale qui gère le combat, sur cette page il y a 3 a
 -	Lancer le combat avec les personnages existants + les personnages de base qui sont toujours dans l'arène au debut du combat.
 
 ### Exemples 
-![debut battle royal SDA](./images/SDA1.png)
+<div style="text-align: center;">
+ ![debut battle royal SDA](./images/SDA1.png)
 
-Fin du combat.
-![fin du combat](./images/SDA2.png)
+ Fin du combat.
 
+ ![fin du combat](./images/SDA2.png)
+</div>
